@@ -1,0 +1,100 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.IPagedList<Araretama.BomNaEscolaBomDeBola.Domain.Aluno>
+
+@{
+    ViewBag.Title = "Alunos";
+}
+
+<h2>Alunos</h2>
+
+<p>
+    @Html.ActionLink("Criar novo aluno", "Create")
+</p>
+@foreach (var item in Model)
+{
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-sm-2">
+                <img src="http://www.abrin.com.br/modulos/imagem/fotos/abrin_brassbaby_1611.jpg" class="img-rounded img-responsive" alt="Cinque Terre" width="40%">
+            </div>
+
+            <div class="col-sm-6">
+                @Html.DisplayFor(modelItem => item.codigo) -
+
+                @Html.DisplayFor(modelItem => item.nome)
+            </div>
+            <div class="col-sm-4 ">
+                @Html.ActionLink(" Editar", "Edit", new { id = item.id }, new { @class = " glyphicon glyphicon-edit btn btn-primary" }) 
+                @Html.ActionLink(" Detalhes", "Details", new { id = item.id }, new { @class = "glyphicon glyphicon-plus btn btn-primary" }) 
+                @Html.ActionLink(" Delete", "Delete", new { id = item.id }, new { @class = "glyphicon glyphicon-trash btn btn-primary" })
+            </div>
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <p>
+            @Html.DisplayNameFor(model => model.First().responsavel):
+            @Html.DisplayFor(modelItem => item.responsavel)
+        </p>
+        <p>
+            @Html.DisplayNameFor(model => model.First().dataNasc) :
+            @Html.DisplayFor(modelItem => item.dataNasc)
+        </p>
+        <p>
+            @Html.DisplayNameFor(model => model.First().escola) :
+            @Html.DisplayFor(modelItem => item.escola) -
+
+            @Html.DisplayNameFor(model => model.First().serie):
+            @Html.DisplayFor(modelItem => item.serie)
+        </p>
+
+        <!--  <p>
+        @Html.DisplayNameFor(model => model.First().contato):
+        @Html.DisplayFor(modelItem => item.contato)
+    </p>
+    <p>
+        @Html.DisplayNameFor(model => model.First().logradouro):
+        @Html.DisplayFor(modelItem => item.logradouro)
+    </p>
+
+    <p>
+        @Html.DisplayNameFor(model => model.First().numero):
+        @Html.DisplayFor(modelItem => item.numero)
+    </p>
+    <p>
+        @Html.DisplayNameFor(model => model.First().cep):
+        @Html.DisplayFor(modelItem => item.cep)
+    </p>
+    <p>
+        @Html.DisplayNameFor(model => model.First().bairro):
+        @Html.DisplayFor(modelItem => item.bairro)
+    </p>
+    <p>
+        @Html.DisplayNameFor(model => model.First().cidade):
+        @Html.DisplayFor(modelItem => item.cidade)
+    </p>
+    <p>
+        @Html.DisplayNameFor(model => model.First().estado):
+        @Html.DisplayFor(modelItem => item.estado)
+    </p>
+    <p>
+        @Html.DisplayNameFor(model => model.First().complemento):
+        @Html.DisplayFor(modelItem => item.complemento)
+    </p>
+    <p>
+        @Html.DisplayNameFor(model => model.First().observacao):
+        @Html.DisplayFor(modelItem => item.observacao)
+    </p>
+      -->
+
+    </div>
+   
+</div>
+}
+                   
+
+    <div>
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+    </div>
