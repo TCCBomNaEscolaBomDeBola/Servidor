@@ -12,9 +12,16 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
     public class AccountController : Controller
     {
         private DbContext _Context;
+        VoluntarioRepository VoluntarioRepository; 
 
         private IAraretamaCommonRepository<Voluntario, int> _repository = new VoluntarioRepository(new BomNaEscolaBomDeBolaDbContext());
         // GET: Account
+
+        public AccountController()
+        {
+            VoluntarioRepository = new VoluntarioRepository(new BomNaEscolaBomDeBolaDbContext());
+        }
+
         public ActionResult Login(string returnURL)
         {
             /*Recebe a url que o usuário tentou acessar*/
@@ -27,13 +34,14 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
     public ActionResult Login(Voluntario login, string returnUrl)
     {
         if (ModelState.IsValid) {
-            var vLogin = _Context.Set<Voluntario>().Where(p => p.Senha == login.Senha & p.Login == login.Login).FirstOrDefault();      
+        
+            var vLogin = VoluntarioRepository.Login(login);
             if (vLogin != null)
             {
                        
                 if (Equals(vLogin.Senha, login.Senha))
                 {
-                    FormsAuthentication.SetAuthCookie(vLogin.Login, false);
+                    FormsAuthentication.SetAuthCookie(vLogin.Email, false);
                     if (Url.IsLocalUrl(returnUrl)
                     && returnUrl.Length > 1
                     && returnUrl.StartsWith("/")
@@ -45,7 +53,7 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
 
                     Session["Nome"] = vLogin.Nome;
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Admin");
                 }    
                 else
                 {

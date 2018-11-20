@@ -21,6 +21,9 @@ namespace Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.Context
 
             modelBuilder.Configurations.Add(new AlunoTypeConfiguration());
             modelBuilder.Configurations.Add(new VoluntarioTypeConfiguration());
+            modelBuilder.Configurations.Add(new TurmaTypeConfiguration());
+            modelBuilder.Configurations.Add(new PresencaTypeConfiguration());
+            modelBuilder.Configurations.Add(new AulaTypeConfiguration());
         }
     }
 }

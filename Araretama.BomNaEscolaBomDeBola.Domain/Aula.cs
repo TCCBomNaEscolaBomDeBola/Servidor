@@ -12,17 +12,13 @@ namespace Araretama.BomNaEscolaBomDeBola.Domain
         public int Id { get; set; }
 
         [Required]
-        [DisplayName("Codigo")]
-        public int Codigo { get; set; }
-
-        [Required]
-        [DisplayName("Data da Chamada")]
-        [DataType(DataType.Time)]
-        public DateTime DataChamada { get; set; }
+        [DisplayName("Data da Aula")]
+        [DataType(DataType.Date)]
+        public DateTime DataAula{ get; set; }
 
         [Required]
         [DisplayName("Data do envio")]
-        [DataType(DataType.Time)]
+        [DataType(DataType.DateTime)]
         public DateTime DataEnvio { get; set; }
 
         [Required]
@@ -35,6 +31,9 @@ namespace Araretama.BomNaEscolaBomDeBola.Domain
 
         [DisplayName("Turma")]
         public Turma Turma { get; set; }
+
+        [DisplayName("Turma")]
+        public int IDTurma { get; set; }
 
     }
 }

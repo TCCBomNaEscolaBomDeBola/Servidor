@@ -10,20 +10,24 @@ namespace Araretama.BomNaEscolaBomDeBola.Domain
     {
         public int Id { get; set; }
 
+        public int IDTurma { get; set; }
+
+
+        public Turma Turma { get; set; }
+
         //[Required(ErrorMessage = "O nome deve ser informado")]
         [DisplayName("Nome")]
         public string Nome { get; set; }
-
-        [Required(ErrorMessage = "O login deve ser informado")]
-        [DisplayName("Login")]
-        public string Login { get; set; }
+        
 
         [Required(ErrorMessage = "A senha deve ser informado")]
         [DisplayName("Senha")]
+        [DataType(DataType.Password)]
         public string Senha { get; set; }
 
-       // [Required]
+        [Required(ErrorMessage = "O login deve ser informado")]
         [DisplayName("Email")]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
       //  [Required]

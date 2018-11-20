@@ -1,18 +1,29 @@
-﻿using System;
+﻿using Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.Context;
+using Araretama.BomNaEscolaBomDeBola.Domain;
+using Araretama.BomNaEscolaBomDeBola.Repository.Entity;
+using AraretamaRepositoy;
+using PagedList;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
 namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
 {
-    [Authorize(Roles = "Administrador")]
+   // [Authorize(Roles = "Administrador")]
     public class VoluntarioController : Controller
     {
+        private DbContext _Context;
+
+        private IAraretamaCommonRepository<Voluntario, int> _repository = new VoluntarioRepository(new BomNaEscolaBomDeBolaDbContext());
+
         // GET: Voluntario
-        public ActionResult Index()
+        public ActionResult Index(int? page, string sortOrder = "", string currentFilter = "", string searchString = "")
         {
-            return View();
+            List<Voluntario> a = _repository.All();
+            return View(a.ToPagedList((page ?? 1), 5));
         }
 
         // GET: Voluntario/Details/5

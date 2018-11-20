@@ -9,11 +9,29 @@ using System.Threading.Tasks;
 
 namespace Araretama.BomNaEscolaBomDeBola.Repository.Entity
 {
-    public class AlunoRepository: AbstractRepository<Aluno, int>
+    public class AlunoRepository : AbstractRepository<Aluno, int>
     {
+        private DbContext _context;
+
         public AlunoRepository(DbContext dbContext) : base(dbContext)
         {
 
+        }
+        public List<Aluno> AlunosTurma(int IdTurma)
+        {
+            return _context.Set<Aluno>().Where(p => p.Id == IdTurma).ToList();
+        }
+        public int QuantidadeAlunosTurma(int IdTurma)
+        {
+            try
+            {
+                return _context.Set<Aluno>().Count(p => p.Id == IdTurma);
+            }
+            catch
+            {
+                return 0;
+            }
+           
         }
     }
 

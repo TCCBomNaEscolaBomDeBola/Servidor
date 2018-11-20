@@ -18,6 +18,9 @@ namespace Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.TypeConfigurations
                 .HasColumnName("ALU_ID")
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
                 .IsRequired();
+            Property(p => p.IDTurma)
+                .HasColumnName("TUR_ID")
+                .IsRequired();
             Property(p => p.Nome)
                 .HasColumnName("ALU_NOME")
                 .HasMaxLength(200)

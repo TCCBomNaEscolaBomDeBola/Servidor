@@ -1,7 +1,9 @@
 ﻿@using PagedList.Mvc;
 @using PagedList;
 @model PagedList.IPagedList<Araretama.BomNaEscolaBomDeBola.Domain.Aluno>
-
+@{
+    Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
 @{
     ViewBag.Title = "Alunos";
 }
@@ -11,90 +13,83 @@
 <p>
     @Html.ActionLink("Criar novo aluno", "Create")
 </p>
-@foreach (var item in Model)
-{
-<div class="panel panel-info">
-    <div class="panel-heading">
-        <div class="row">
-            <div class="col-sm-2">
-                <img src="http://www.abrin.com.br/modulos/imagem/fotos/abrin_brassbaby_1611.jpg" class="img-rounded img-responsive" alt="Cinque Terre" width="40%">
-            </div>
 
-            <div class="col-sm-6">
-                @Html.DisplayFor(modelItem => item.codigo) -
+<div class="col-md-12">
+    <div class="x_panel">
+        <div class="x_content">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                    <ul class="pagination pagination-split">
+                        <li><a href="#">A</a></li>
+                        <li><a href="#">B</a></li>
+                        <li><a href="#">C</a></li>
+                        <li><a href="#">D</a></li>
+                        <li><a href="#">E</a></li>
+                        <li>...</li>
+                        <li><a href="#">W</a></li>
+                        <li><a href="#">X</a></li>
+                        <li><a href="#">Y</a></li>
+                        <li><a href="#">Z</a></li>
+                    </ul>
+                </div>
 
-                @Html.DisplayFor(modelItem => item.nome)
-            </div>
-            <div class="col-sm-4 ">
-                @Html.ActionLink(" Editar", "Edit", new { id = item.id }, new { @class = " glyphicon glyphicon-edit btn btn-primary" }) 
-                @Html.ActionLink(" Detalhes", "Details", new { id = item.id }, new { @class = "glyphicon glyphicon-plus btn btn-primary" }) 
-                @Html.ActionLink(" Delete", "Delete", new { id = item.id }, new { @class = "glyphicon glyphicon-trash btn btn-primary" })
+                <div class="clearfix"></div>
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4 col-sm-4 col-xs-12 profile_details">
+                        <div class="well profile_view">
+                            <div class="col-sm-12">
+                                <h4 class="brief"><i>Digital Strategist</i></h4>
+                                <div class="left col-xs-7">
+                                    <h2>@Html.DisplayFor(modelItem => item.Id) - @Html.DisplayFor(modelItem => item.Nome)</h2>
+                                    <p><strong>@Html.DisplayNameFor(model => model.First().Responsavel) </strong>  @Html.DisplayFor(modelItem => item.Responsavel) </p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fa fa-building"></i> @Html.DisplayNameFor(model => model.First().DataNasc) : @Html.DisplayFor(modelItem => item.DataNasc) </li>
+                                        <li><i class="fa fa-phone"></i> @Html.DisplayNameFor(model => model.First().Escola) : @Html.DisplayFor(modelItem => item.Escola) </li>
+                                        <li>
+                                            <i class="fa fa-phone"></i>@Html.DisplayNameFor(model => model.First().Contato): @Html.DisplayFor(modelItem => item.Contato))
+                                        </li>
+                                    </ul>
+
+
+
+                                </div>
+                                <div class="right col-xs-5 text-center">
+                                    <img src="http://www.abrin.com.br/modulos/imagem/fotos/abrin_brassbaby_1611.jpg" alt="" class="img-circle img-responsive">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 bottom text-center">
+
+                                <div class="col-xs-12 col-sm-6 emphasis">
+                                    @Html.ActionLink(" Editar", "Edit", new { id = item.Id }, new { @class = " glyphicon glyphicon-edit btn btn-success btn-xs" })
+                                    @Html.ActionLink(" Detalhes", "Details", new { id = item.Id }, new { @class = "glyphicon glyphicon-plus btn btn-success btn-xs" })
+                                    @Html.ActionLink(" Delete", "Delete", new { id = item.Id }, new { @class = "glyphicon glyphicon-trash btn btn-success btn-xs" })
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+
+
+                }
+
             </div>
         </div>
     </div>
-
-    <div class="panel-body">
-        <p>
-            @Html.DisplayNameFor(model => model.First().responsavel):
-            @Html.DisplayFor(modelItem => item.responsavel)
-        </p>
-        <p>
-            @Html.DisplayNameFor(model => model.First().dataNasc) :
-            @Html.DisplayFor(modelItem => item.dataNasc)
-        </p>
-        <p>
-            @Html.DisplayNameFor(model => model.First().escola) :
-            @Html.DisplayFor(modelItem => item.escola) -
-
-            @Html.DisplayNameFor(model => model.First().serie):
-            @Html.DisplayFor(modelItem => item.serie)
-        </p>
-
-        <!--  <p>
-        @Html.DisplayNameFor(model => model.First().contato):
-        @Html.DisplayFor(modelItem => item.contato)
-    </p>
-    <p>
-        @Html.DisplayNameFor(model => model.First().logradouro):
-        @Html.DisplayFor(modelItem => item.logradouro)
-    </p>
-
-    <p>
-        @Html.DisplayNameFor(model => model.First().numero):
-        @Html.DisplayFor(modelItem => item.numero)
-    </p>
-    <p>
-        @Html.DisplayNameFor(model => model.First().cep):
-        @Html.DisplayFor(modelItem => item.cep)
-    </p>
-    <p>
-        @Html.DisplayNameFor(model => model.First().bairro):
-        @Html.DisplayFor(modelItem => item.bairro)
-    </p>
-    <p>
-        @Html.DisplayNameFor(model => model.First().cidade):
-        @Html.DisplayFor(modelItem => item.cidade)
-    </p>
-    <p>
-        @Html.DisplayNameFor(model => model.First().estado):
-        @Html.DisplayFor(modelItem => item.estado)
-    </p>
-    <p>
-        @Html.DisplayNameFor(model => model.First().complemento):
-        @Html.DisplayFor(modelItem => item.complemento)
-    </p>
-    <p>
-        @Html.DisplayNameFor(model => model.First().observacao):
-        @Html.DisplayFor(modelItem => item.observacao)
-    </p>
-      -->
-
-    </div>
-   
 </div>
-}
-                   
+<div>
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>
 
-    <div>
-        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
-    </div>
+
+
+
+
+
+
+
+
+
+
+

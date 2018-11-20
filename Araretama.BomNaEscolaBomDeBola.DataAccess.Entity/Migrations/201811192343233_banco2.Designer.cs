@@ -7,13 +7,13 @@ namespace Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class create2 : IMigrationMetadata
+    public sealed partial class banco2 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(create2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(banco2));
         
         string IMigrationMetadata.Id
         {
-            get { return "201810260026448_create2"; }
+            get { return "201811192343233_banco2"; }
         }
         
         string IMigrationMetadata.Source

@@ -12,6 +12,7 @@ namespace Araretama.BomNaEscolaBomDeBola.Domain
 
         public int Id { get; set; }
 
+
         [Required(ErrorMessage = "O nome da turma deve ser informado")]
         [DisplayName("Turma")]
         [StringLength(100, MinimumLength = 3)]

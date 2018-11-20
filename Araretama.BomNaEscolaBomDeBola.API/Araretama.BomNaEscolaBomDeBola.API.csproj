@@ -548,7 +548,9 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AlunoController.cs" />
+    <Compile Include="Controllers\AulaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TurmaController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\VoluntarioController.cs" />
     <Compile Include="Global.asax.cs">
@@ -615,6 +617,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Aluno\" />
+    <Folder Include="Views\Aula\" />
+    <Folder Include="Views\Turma\" />
     <Folder Include="Views\Voluntario\" />
   </ItemGroup>
   <ItemGroup>

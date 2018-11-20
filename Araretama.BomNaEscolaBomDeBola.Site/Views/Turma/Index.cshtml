@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Araretama.BomNaEscolaBomDeBola.Domain.Turma>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdadeMinima)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdadeMaxima)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuantidadeDeAlunos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HorarioInicial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HorarioFinal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiaSemana)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdadeMinima)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdadeMaxima)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuantidadeDeAlunos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HorarioInicial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HorarioFinal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaSemana)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

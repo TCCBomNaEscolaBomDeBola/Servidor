@@ -8,19 +8,24 @@ namespace Araretama.BomNaEscolaBomDeBola.Domain
 {
     public class Presenca
     {
-
+        [Required]
+        [DisplayName("Codigo")]
         public int id { get; set; }
 
         [Required]
-        [DisplayName("Codigo")]
-        public int codigo { get; set; }
+        [DisplayName("Aluno")]
+        public Aluno Aluno { get; set; }
 
         [Required]
         [DisplayName("Aluno")]
-        public Aluno aluno { get; set; }
+        public int IDAluno { get; set; }
 
         [Required]
         [DisplayName("Presença")]
-        public bool presente { get; set; }
+        public bool Presente { get; set; }
+
+        [Required]
+        [DisplayName("Aula")]
+        public int IDAula { get; set; }
     }
 }

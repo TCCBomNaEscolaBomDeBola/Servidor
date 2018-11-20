@@ -19,6 +19,9 @@ namespace Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.TypeConfigurations
                 .HasColumnName("VOL_ID")
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
                 .IsRequired();
+            Property(p => p.IDTurma)
+               .HasColumnName("TUR_ID")
+               .IsRequired();
             Property(p => p.Nome)
                 .HasColumnName("VOL_NOME")
                 .HasMaxLength(200)
@@ -30,8 +33,6 @@ namespace Araretama.BomNaEscolaBomDeBola.DataAccess.Entity.TypeConfigurations
             Property(p => p.Email)
                .HasColumnName("VOL_EMAIL");
 
-            Property(p => p.Login)
-              .HasColumnName("VOL_LOGIN");
 
             Property(p => p.Senha)
               .HasColumnName("VOL_SENHA");

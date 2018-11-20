@@ -12,12 +12,15 @@ using System.Web.Mvc;
 
 namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
 {
-    [Authorize(Roles = "Administrador")]
+  //  [Authorize(Roles = "Administrador")]
     public class AlunoController : Controller
     {
         private DbContext _Context;
 
         private IAraretamaCommonRepository<Aluno, int> _repository = new AlunoRepository(new BomNaEscolaBomDeBolaDbContext());
+        
+
+
 
         // GET: Aluno
         public ActionResult Index(int? page, string sortOrder="", string currentFilter="", string searchString="")
@@ -29,7 +32,7 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
         // GET: Aluno/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View(_repository.ByKey(id));
         }
 
         // GET: Aluno/Create
@@ -62,7 +65,6 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
                     Serie = collection["serie"]
                 };
 
-
                 _repository.Insert(aluno);
                 return RedirectToAction("Index");
             }
@@ -75,7 +77,7 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
         // GET: Aluno/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(_repository.ByKey(id));
         }
 
         // POST: Aluno/Edit/5
@@ -84,8 +86,26 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+                Aluno aluno = new Aluno
+                {
+                    Bairro = collection["bairro"],
+                    Cep = collection["cep"],
+                    Cidade = collection["cidade"],
+                    Complemento = collection["complemento"],
+                    Contato = collection["contato"],
+                    DataNasc = collection["dataNasc"],
+                    Escola = collection["escola"],
+                    Estado = collection["estado"],
+                    Logradouro = collection["logradouro"],
+                    Nome = collection["nome"],
+                    Numero = collection["numero"],
+                    Observacao = collection["observacao"],
+                    Responsavel = collection["responsavel"],
+                    Serie = collection["serie"]
+                };
 
+                aluno.Id = id;
+                _repository.Update(aluno);
                 return RedirectToAction("Index");
             }
             catch
@@ -97,7 +117,7 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
         // GET: Aluno/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(_repository.ByKey(id));
         }
 
         // POST: Aluno/Delete/5
@@ -106,14 +126,16 @@ namespace Araretama.BomNaEscolaBomDeBola.Site.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
-
+                _repository.DeleteByKey(id);
                 return RedirectToAction("Index");
+
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                return View(_repository.ByKey(id));
+
             }
         }
     }
 }
+

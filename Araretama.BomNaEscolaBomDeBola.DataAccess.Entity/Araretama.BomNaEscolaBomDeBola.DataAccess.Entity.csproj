@@ -63,21 +63,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\BomNaEscolaBomDeBolaDbContext.cs" />
-    <Compile Include="Migrations\201810260023035_create.cs" />
-    <Compile Include="Migrations\201810260023035_create.Designer.cs">
-      <DependentUpon>201810260023035_create.cs</DependentUpon>
+    <Compile Include="Migrations\201811171910452_banco1.cs" />
+    <Compile Include="Migrations\201811171910452_banco1.Designer.cs">
+      <DependentUpon>201811171910452_banco1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201810260026448_create2.cs" />
-    <Compile Include="Migrations\201810260026448_create2.Designer.cs">
-      <DependentUpon>201810260026448_create2.cs</DependentUpon>
+    <Compile Include="Migrations\201811192343233_banco2.cs" />
+    <Compile Include="Migrations\201811192343233_banco2.Designer.cs">
+      <DependentUpon>201811192343233_banco2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201810262300120_voluntario.cs" />
-    <Compile Include="Migrations\201810262300120_voluntario.Designer.cs">
-      <DependentUpon>201810262300120_voluntario.cs</DependentUpon>
+    <Compile Include="Migrations\201811200041335_banco3.cs" />
+    <Compile Include="Migrations\201811200041335_banco3.Designer.cs">
+      <DependentUpon>201811200041335_banco3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TypeConfigurations\AlunoTypeConfiguration.cs" />
+    <Compile Include="TypeConfigurations\AulaTypeConfiguration.cs" />
+    <Compile Include="TypeConfigurations\PresencaTypeConfiguration.cs" />
+    <Compile Include="TypeConfigurations\TurmaTypeConfiguration.cs" />
     <Compile Include="TypeConfigurations\VoluntarioTypeConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -95,14 +98,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201810260023035_create.resx">
-      <DependentUpon>201810260023035_create.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201811171910452_banco1.resx">
+      <DependentUpon>201811171910452_banco1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810260026448_create2.resx">
-      <DependentUpon>201810260026448_create2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201811192343233_banco2.resx">
+      <DependentUpon>201811192343233_banco2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810262300120_voluntario.resx">
-      <DependentUpon>201810262300120_voluntario.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201811200041335_banco3.resx">
+      <DependentUpon>201811200041335_banco3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
